@@ -14,9 +14,9 @@
                 {% csrf_token %}
                 <input type="text" name="username" id="username" required placeholder="Username">
                 <input type="password" name="password" id="password" required placeholder="Password">
-                <button type="submit">Submit</button>
+                <button class="btn-1" type="submit">Submit</button>
             </form> 
-            <a href="{% url 'signup' %}">Create an Account</a>
+            <a class="btn-2" href="{% url 'signup' %}">Create an Account</a>
         </div>
     </section>
 </body>
