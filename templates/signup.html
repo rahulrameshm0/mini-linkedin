@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <section>
+        <div>
+            <form action="" method="POST">
+                {% csrf_token %}
+                <input type="text" name="username" id="username" required placeholder="Username">
+                <input type="email" name="email" id="email" required placeholder="Email">
+                <input type="number" name="number" id="number" required placeholder="number">
+                <input type="password" name="password" id="password" required placeholder="Password">
+                <input type="password" name="conferm-password" id="conferm-password" required placeholder="Conferm Password">
+                <button type="submit">Signup</button>
+            </form>
+        </div>
+    </section>
+</body>
+</html>
