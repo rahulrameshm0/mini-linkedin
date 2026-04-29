@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+    <link rel="stylesheet" href="{% static 'login.css' %}">
     <title>Signin</title>
 </head>
 <body>
@@ -16,8 +16,6 @@
                 <input type="password" name="password" id="password" required placeholder="Password">
                 <button type="submit">Submit</button>
             </form> 
-        </div>
-        <div>
             <a href="{% url 'signup' %}">Create an Account</a>
         </div>
     </section>
