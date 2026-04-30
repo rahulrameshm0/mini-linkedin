@@ -11,11 +11,11 @@ def sign_in(request):
         username = request.POST.get("username")
         password = request.POST.get("password")
         
-        user = authenticate(username=username,password=password)
+        user = authenticate(request, username=username,password=password)
 
         if user is not None:
             login(request, user)
-            return render(request, "dashboard.html")
+            return redirect( "dashboard")
         
         messages.error(request, "Your username or password is incorrect")
         return redirect('signin')
@@ -26,7 +26,6 @@ def signup(request):
     if request.method == "POST":
         username = request.POST.get("username")
         email = request.POST.get('email')
-        phone = request.POST.get("phone")
         password = request.POST.get("password")
         confirm_password = request.POST.get("confirm-password")
 
@@ -46,13 +45,17 @@ def signup(request):
             messages.error(request, "You atleast need 8 chracters to create a password")
             return redirect("signup")
         
-        create_user = User.objects.create(
+        create_user = User.objects.create_user(
             username=username,
             email=email,
             password=password,
         )
 
         create_user.save()
+        print(create_user)
         return redirect('signin')
     
     return render(request, 'signup.html')
+
+def dashboard(request):
+    return render(request, "dashboard.html")
