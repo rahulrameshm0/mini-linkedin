@@ -18,6 +18,11 @@
             </form> 
             <a class="btn-2" href="{% url 'signup' %}">Create an Account</a>
         </div>
+            {% for message in messages %}
+                {% if message %}
+                  {{message}}
+                {% endif %}
+            {% endfor %}
     </section>
 </body>
 </html>
