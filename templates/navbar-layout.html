@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock title %}</title>
+    {% load bootstrap5 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+</head>
+<body>
+    {% block blockname %}
+    <section class="d-flex align-items-center justify-content-between">
+        <div class="d-flex justify-content-between align-items-center gap-3">
+            <h3>Mini Linkedin</h3>
+            <form action="" method="GET">
+                <input type="search" name="search" id="search" placeholder="Search">
+            </form>
+        </div>
+    
+        <div>
+            <a href="#">Home</a>
+            <a href="#">Network</a>
+            <a href="#">Jobs</a>
+            <a href="#">Messages</a>
+            <a href="#">Alerts</a>
+            <a href="#"><img src="" alt="profile"></a>
+        </div>
+    </section>
+
+    {% endblock blockname %}
+</body>
+</html>
