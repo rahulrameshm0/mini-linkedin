@@ -1,5 +1,125 @@
-.section-2{
-    display: flex;
-    justify-content: center;
+/* Base */
+body {
+    margin: 0;
+    font-family: 'DM Sans', sans-serif;
     background-color: #f3f2ee;
+}
+
+/* NAVBAR */
+section {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: white;
+    height: 62px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 2.5rem;
+    border-bottom: 1px solid #e0ddd6;
+}
+
+/* LEFT SIDE */
+section > div:first-child {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+section h3 {
+    color: #0a66c2;
+}
+
+/* SEARCH */
+section input[type="search"] {
+    background: #eef3f8;
+    border: none;
+    border-radius: 6px;
+    padding: 8px 12px;
+    outline: none;
+}
+
+/* RIGHT NAV */
+section > div:last-child {
+    display: flex;
+    align-items: center;
+}
+
+section > div:last-child a {
+    text-decoration: none;
+    color: #666;
+    padding: 6px 10px;
+}
+
+/* MAIN FEED */
+.feed-wrapper {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 0 10px;
+}
+
+/* CREATE POST */
+.create-post {
+    background: white;
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    margin-bottom: 20px;
+}
+
+.create-post form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.create-post textarea {
+    resize: none;
+    padding: 12px;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    outline: none;
+}
+
+.create-post textarea:focus {
+    border-color: #0a66c2;
+}
+
+.create-post button {
+    align-self: flex-end;
+    background: #0a66c2;
+    color: white;
+    border: none;
+    padding: 8px 18px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+/* POSTS */
+.posts-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.post-card {
+    background: white;
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.post-card .username {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.post-card .content {
+    margin-bottom: 10px;
+}
+
+.post-card img {
+    width: 100%;
+    border-radius: 10px;
+    display: block;
 }
