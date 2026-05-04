@@ -1,0 +1,257 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=DM+Sans:wght@300;400;500&display=swap');
+
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --gold: #c9a84c;
+    --gold-light: #e8c97a;
+    --gold-dim: rgba(201, 168, 76, 0.15);
+    --dark-bg: #0d0d0f;
+    --card-bg: rgba(255, 255, 255, 0.04);
+    --border: rgba(201, 168, 76, 0.25);
+    --border-hover: rgba(201, 168, 76, 0.6);
+    --text-primary: #f0ece3;
+    --text-muted: rgba(240, 236, 227, 0.45);
+    --input-bg: rgba(255, 255, 255, 0.05);
+    --error: #e07070;
+    --success: #7ec99a;
+}
+
+body {
+    font-family: 'DM Sans', sans-serif;
+    background-color: var(--dark-bg);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+/* Atmospheric background */
+body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background:
+        radial-gradient(ellipse 70% 55% at 15% 85%, rgba(201, 168, 76, 0.07) 0%, transparent 60%),
+        radial-gradient(ellipse 55% 45% at 85% 15%, rgba(201, 168, 76, 0.05) 0%, transparent 55%),
+        radial-gradient(ellipse 40% 40% at 50% 50%, rgba(201, 168, 76, 0.03) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Grain overlay */
+body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+    opacity: 0.4;
+    pointer-events: none;
+    z-index: 0;
+}
+
+section {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding: 2rem 1.5rem;
+    animation: fadeUp 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(28px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Card — first div inside section */
+section > div:first-child {
+    width: 100%;
+    max-width: 420px;
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 3rem 2.5rem 2.5rem;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    box-shadow:
+        0 0 0 1px rgba(255,255,255,0.04) inset,
+        0 40px 80px rgba(0,0,0,0.5);
+    animation: fadeUp 0.8s 0.1s cubic-bezier(0.22, 1, 0.36, 1) both;
+    position: relative;
+}
+
+/* Gold accent top line */
+section > div:first-child::before {
+    content: '';
+    display: block;
+    width: 48px;
+    height: 2px;
+    background: linear-gradient(90deg, var(--gold), var(--gold-light));
+    margin: 0 auto 2rem;
+    border-radius: 2px;
+}
+
+/* Optional heading — add <h1>Create Account</h1> inside first div */
+section > div:first-child h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2rem;
+    font-weight: 300;
+    color: var(--text-primary);
+    text-align: center;
+    letter-spacing: 0.04em;
+    margin-bottom: 2rem;
+}
+
+/* Subtitle */
+section > div:first-child p.subtitle {
+    font-size: 0.83rem;
+    color: var(--text-muted);
+    text-align: center;
+    margin-top: -1.5rem;
+    margin-bottom: 1.75rem;
+    letter-spacing: 0.01em;
+}
+
+/* Form */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
+}
+
+/* Inputs */
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    height: 52px;
+    background: var(--input-bg);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 0 1.25rem;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 300;
+    color: var(--text-primary);
+    letter-spacing: 0.02em;
+    outline: none;
+    transition: border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+}
+
+input::placeholder {
+    color: var(--text-muted);
+    font-weight: 300;
+}
+
+input:hover {
+    border-color: rgba(201, 168, 76, 0.45);
+    background: rgba(255, 255, 255, 0.07);
+}
+
+input:focus {
+    border-color: var(--gold);
+    background: rgba(255, 255, 255, 0.07);
+    box-shadow: 0 0 0 3px var(--gold-dim);
+}
+
+/* Stagger input animations */
+form input:nth-child(1) { animation: fadeUp 0.6s 0.20s cubic-bezier(0.22, 1, 0.36, 1) both; }
+form input:nth-child(2) { animation: fadeUp 0.6s 0.28s cubic-bezier(0.22, 1, 0.36, 1) both; }
+form input:nth-child(3) { animation: fadeUp 0.6s 0.36s cubic-bezier(0.22, 1, 0.36, 1) both; }
+form input:nth-child(4) { animation: fadeUp 0.6s 0.44s cubic-bezier(0.22, 1, 0.36, 1) both; }
+
+/* Submit button */
+button[type="submit"] {
+    width: 100%;
+    height: 52px;
+    margin-top: 0.5rem;
+    background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
+    border: none;
+    border-radius: 10px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #1a1408;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: opacity 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+    box-shadow: 0 4px 24px rgba(201, 168, 76, 0.3);
+    animation: fadeUp 0.6s 0.52s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+button[type="submit"]:hover {
+    opacity: 0.92;
+    transform: translateY(-1px);
+    box-shadow: 0 8px 32px rgba(201, 168, 76, 0.4);
+}
+
+button[type="submit"]:active {
+    transform: translateY(0px) scale(0.98);
+    opacity: 1;
+    box-shadow: 0 2px 12px rgba(201, 168, 76, 0.25);
+}
+
+/* Sign-in link — add an <a> below the form if needed */
+.signin-link {
+    display: block;
+    text-align: center;
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border);
+    font-size: 0.875rem;
+    color: var(--text-muted);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.signin-link:hover {
+    color: var(--gold-light);
+}
+
+.signin-link span {
+    color: var(--gold);
+    font-weight: 500;
+}
+
+/* Flash messages — second div inside section */
+section > div:last-child:not(:first-child) {
+    width: 100%;
+    max-width: 420px;
+}
+
+/* section > div:last-child:not(:first-child):not(:empty) {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.85rem;
+    color: var(--error);
+    background: rgba(224, 112, 112, 0.08);
+    border: 1px solid rgba(224, 112, 112, 0.22);
+    border-radius: 10px;
+    padding: 0.8rem 1.1rem;
+    text-align: center;
+    animation: fadeUp 0.4s ease both;
+} */
+
+/* Success-style messages (optional — add .success class via Django message tags) */
+.messages-success {
+    color: var(--success);
+    background: rgba(126, 201, 154, 0.08);
+    border-color: rgba(126, 201, 154, 0.22);
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+    section > div:first-child {
+        padding: 2.5rem 1.75rem 2rem;
+        border-radius: 16px;
+    }
+}

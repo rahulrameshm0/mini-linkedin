@@ -1,0 +1,155 @@
+/* ── Reset & Base ── */
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&display=swap');
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'DM Sans', sans-serif;
+    background-color: #f3f2ee;
+}
+
+/* ── Navbar Section ── */
+section {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: #ffffff;
+    border-bottom: 1px solid #e0ddd6;
+    padding: 0 2.5rem;
+    height: 62px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.07);
+}
+
+/* ── Brand Title ── */
+section h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #0a66c2;
+    letter-spacing: -0.4px;
+    white-space: nowrap;
+}
+
+/* ── Left Group (Brand + Search) ── */
+section > div:first-child {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+/* ── Search Form ── */
+section form {
+    position: relative;
+}
+
+section form::before {
+    content: '';
+    position: absolute;
+    left: 11px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 13px;
+    height: 13px;
+    border: 1.5px solid #999;
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+section form::after {
+    content: '';
+    position: absolute;
+    left: 21px;
+    top: 56%;
+    width: 5px;
+    height: 1.5px;
+    background: #999;
+    transform: rotate(45deg);
+    pointer-events: none;
+}
+
+section input[type="search"] {
+    background: #eef3f8;
+    border: 1.5px solid transparent;
+    border-radius: 6px;
+    padding: 8px 14px 8px 34px;
+    font-size: 0.875rem;
+    font-family: 'DM Sans', sans-serif;
+    color: #1c1c1c;
+    width: 220px;
+    outline: none;
+    transition: border-color 0.2s, background 0.2s, width 0.3s ease;
+}
+
+section input[type="search"]::placeholder {
+    color: #999;
+}
+
+section input[type="search"]:focus {
+    border-color: #0a66c2;
+    background: #fff;
+    width: 270px;
+}
+
+/* ── Right Nav Links ── */
+section > div:last-child {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+section > div:last-child a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: #666;
+    padding: 6px 14px;
+    border-radius: 6px;
+    white-space: nowrap;
+    position: relative;
+    transition: color 0.15s, background 0.15s;
+}
+
+section > div:last-child a:hover {
+    color: #1c1c1c;
+    background: #f3f2ee;
+}
+
+section > div:last-child a:first-child {
+    color: #1c1c1c;
+}
+
+section > div:last-child a:first-child::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: #1c1c1c;
+    border-radius: 2px 2px 0 0;
+}
+
+/* ── Profile Image ── */
+section > div:last-child a:last-child {
+    padding: 4px 8px;
+}
+
+section > div:last-child a img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 1.5px solid #ccc;
+    background: #dce6f1;
+    display: block;
+}
+
