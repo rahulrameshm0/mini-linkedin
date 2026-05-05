@@ -1,6 +1,42 @@
 {% extends "navbar-layout.html" %}
 {% load static %}
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
+    <title>Document</title>
+</head>
 {% block content %}
+<body>
+ <!-- MAIN CONTENT -->
+    <main class="feed-wrapper">
 
-{% endblock content %}
+        <!-- CREATE POST -->
+        <div class="create-post">
+            <form method="POST" enctype="multipart/form-data"  action="{% url 'dashboard' %}">
+                {% csrf_token %}
+                <textarea name="content" placeholder="What’s on your mind?" required></textarea>
+                <input type="file" name="image">
+                <button type="submit">Post</button>
+            </form>
+        </div>
+
+        <!-- POSTS -->
+        <div class="posts-container">
+            {% for post in posts %}
+                <div class="post-card">
+                    <p class="username">{{ post.user.username }}</p>
+                    <p class="content">{{ post.content }}</p>
+
+                    {% if post.image %}
+                        <img src="{{ post.image.url }}" alt="post">
+                    {% endif %}
+                </div>
+            {% endfor %}
+        </div>
+    </main>
+</body>
+{% endblock content %}    
+</html>

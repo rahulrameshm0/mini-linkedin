@@ -9,53 +9,31 @@
 </head>
 <body>
 
-    <!-- NAVBAR -->
-    <section>
-        <div>
-            <h3>Mini Linkedin</h3>
-            <form>
-                <input type="search" placeholder="Search">
-            </form>
-        </div>
+<!-- NAVBAR -->
+<section>
+    <div>
+        <h3>Mini Linkedin</h3>
+        <form>
+            <input type="search" placeholder="Search">
+        </form>
+    </div>
 
-        <div>
-            <a href="#">Home</a>
-            <a href="#">Network</a>
-            <a href="#">Jobs</a>
-            <a href="#">Messages</a>
-            <a href="#">Alerts</a>
-            <a href="#"><img src="" alt="profile"></a>
-        </div>
-    </section>
+    <div>
+        <a href="#">Home</a>
+        <a href="#">Network</a>
+        <a href="#">Jobs</a>
+        <a href="#">Messages</a>
+        <a href="#">Alerts</a>
+        <a href="#"><img src="" alt="profile"></a>
+        <a href="{% url 'logout' %}">Logout</a>
+    </div>
+</section>
 
-    <!-- MAIN CONTENT -->
-    <main class="feed-wrapper">
-
-        <!-- CREATE POST -->
-        <div class="create-post">
-            <form method="POST" enctype="multipart/form-data">
-                {% csrf_token %}
-                <textarea name="content" placeholder="What’s on your mind?" required></textarea>
-                <input type="file" name="image">
-                <button type="submit">Post</button>
-            </form>
-        </div>
-
-        <!-- POSTS -->
-        <div class="posts-container">
-            {% for post in posts %}
-                <div class="post-card">
-                    <p class="username">{{ post.user.username }}</p>
-                    <p class="content">{{ post.content }}</p>
-
-                    {% if post.image %}
-                        <img src="{{ post.image.url }}" alt="post">
-                    {% endif %}
-                </div>
-            {% endfor %}
-        </div>
-
-    </main>
+<!-- CONTENT AREA -->
+<main>
+    {% block content %}
+    {% endblock %}
+</main>
 
 </body>
 </html>
