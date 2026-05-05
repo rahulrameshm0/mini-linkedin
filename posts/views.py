@@ -22,6 +22,6 @@ def dashboard(request):
         )
 
         return redirect("dashboard")
-    posts = Post.objects.all().order_by('created_at')
+    posts = Post.objects.all().order_by('-created_at')
 
     return render(request, "dashboard.html", {'posts':posts})
