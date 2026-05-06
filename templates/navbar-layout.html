@@ -5,6 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'css/posts.css' %}">
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
     <title>Mini LinkedIn</title>
 </head>
 <body>
@@ -23,10 +26,9 @@
         <a href="#">Network</a>
         <a href="#">Jobs</a>
         <a href="#">Messages</a>
-        <a href="#">Alerts</a>
-        <a href="#"><img src="" alt="profile" class="profile-img"></a>
-        <button id="darkToggle">🌙</button>
-        <a href="{% url 'logout' %}">Logout</a>
+        <a href="#" class="profile-link"><img src="{% static 'images/rahul.jpg' %}" alt="profile" class="profile-img"></a>
+        <button id="darkToggle" class="toggle"><span class="icon">🌙</span></button>
+        <a href="{% url 'logout' %}"><ion-icon class="icon" name="log-out-outline"></ion-icon></a>
     </div>
 </section>
 

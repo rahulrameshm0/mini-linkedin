@@ -8,8 +8,7 @@ body {
 /* Utility */
 .flex-item {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
+    justify-content: space-between; 
 }
 
 /* NAVBAR */
@@ -255,13 +254,136 @@ body.dark-mode .create-post button {
 }
 
 /* SIDEBARS (L1 + L3) */
-body.dark-mode .flex-item > div:first-child,
+/* body.dark-mode .flex-item > div:first-child,
 body.dark-mode .flex-item > div:last-child {
     background: #1e1e1e;
     color: #fff;
-}
+} */
 
 /* REMOVE LIGHT GREY GAP */
 body.dark-mode .flex-item {
     background: transparent;
+}
+
+/* Toggle Button */
+.toggle {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    border: none;
+    background: #f3f2ee;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+/* Icon */
+.toggle .icon {
+    font-size: 18px;
+    transition: transform 0.3s ease;
+}
+
+/* Hover */
+.toggle:hover {
+    background: #e4e6eb;
+    transform: scale(1.05);
+}
+
+/* Click animation */
+.toggle:active {
+    transform: scale(0.95);
+}
+
+/* Dark mode style */
+body.dark-mode .toggle {
+    background: #2a2a2a;
+}
+
+/* Dark mode hover */
+body.dark-mode .toggle:hover {
+    background: #3a3a3a;
+}
+
+/* Profile wrapper (for spacing + interaction) */
+.profile-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4px;
+    border-radius: 50%;
+    transition: background 0.2s ease;
+}
+
+/* Hover background (subtle like LinkedIn) */
+.profile-link:hover {
+    background: #f3f2ee;
+}
+
+/* Profile image */
+.profile-img {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 1.5px solid #ccc;
+    background: #dce6f1;
+    display: block;
+    transition: all 0.25s ease;
+}
+
+/* Hover effect */
+.profile-img:hover {
+    transform: scale(1.06);
+    border-color: #0a66c2;
+}
+
+/* Dark mode support */
+body.dark-mode .profile-link:hover {
+    background: #2a2a2a;
+}
+
+body.dark-mode .profile-img {
+    border: 1.5px solid #444;
+}
+
+.icon{
+    font-size: 2rem;
+    color: red;
+}
+
+
+/* FILE UPLOAD WRAPPER */
+.file-upload {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* HIDE DEFAULT INPUT */
+.file-upload input[type="file"] {
+    display: none;
+}
+
+/* CUSTOM BUTTON */
+.upload-btn {
+    background: #eef3f8;
+    color: #0a66c2;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 13px;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+/* HOVER */
+.upload-btn:hover {
+    background: #dce6f1;
+}
+
+/* FILE NAME */
+.file-name {
+    font-size: 12px;
+    color: #666;
 }
