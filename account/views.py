@@ -60,6 +60,3 @@ def signup(request):
 def log_out(request):
     logout(request)
     return redirect('signin')
-
-def dashboard(request):
-    return render(request, "dashboard.html")
