@@ -5,6 +5,12 @@ body {
     background-color: #f3f2ee;
 }
 
+.flex-item{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
 /* NAVBAR */
 section {
     position: sticky;
