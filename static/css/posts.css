@@ -5,7 +5,8 @@ body {
     background-color: #f3f2ee;
 }
 
-.flex-item{
+/* Utility */
+.flex-item {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -16,45 +17,83 @@ section {
     position: sticky;
     top: 0;
     z-index: 100;
-    background: white;
-    height: 62px;
+    background: #ffffff;
+    height: 64px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 2.5rem;
+    padding: 0 2rem;
     border-bottom: 1px solid #e0ddd6;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
 }
 
 /* LEFT SIDE */
 section > div:first-child {
     display: flex;
     align-items: center;
-    gap: 1rem;
+    gap: 1.2rem;
 }
 
 section h3 {
     color: #0a66c2;
+    font-weight: 600;
+    font-size: 1.2rem;
 }
 
 /* SEARCH */
 section input[type="search"] {
     background: #eef3f8;
-    border: none;
-    border-radius: 6px;
-    padding: 8px 12px;
+    border: 1px solid transparent;
+    border-radius: 20px;
+    padding: 8px 14px;
     outline: none;
+    width: 220px;
+    transition: all 0.25s ease;
+}
+
+section input[type="search"]:focus {
+    background: #ffffff;
+    border-color: #0a66c2;
+    width: 260px;
 }
 
 /* RIGHT NAV */
 section > div:last-child {
     display: flex;
     align-items: center;
+    gap: 6px;
 }
 
+/* NAV LINKS */
 section > div:last-child a {
     text-decoration: none;
     color: #666;
-    padding: 6px 10px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    padding: 6px 12px;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+}
+
+section > div:last-child a:hover {
+    background: #f3f2ee;
+    color: #000;
+}
+
+/* PROFILE IMAGE */
+.profile-img {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 1.5px solid #ccc;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.profile-img:hover {
+    transform: scale(1.08);
+    border-color: #0a66c2;
 }
 
 /* MAIN FEED */
@@ -128,4 +167,101 @@ section > div:last-child a {
     width: 100%;
     border-radius: 10px;
     display: block;
+}
+
+/* ───────── FULL DARK MODE ───────── */
+
+body.dark-mode {
+    background-color: #121212;
+    color: #e4e6eb;
+}
+
+/* NAVBAR */
+body.dark-mode section {
+    background: #1e1e1e;
+    border-bottom: 1px solid #2a2a2a;
+}
+
+/* SEARCH */
+body.dark-mode input[type="search"] {
+    background: #2a2a2a;
+    color: #fff;
+    border: 1px solid #444;
+}
+
+/* SEARCH ICON */
+body.dark-mode section form::before {
+    border-color: #aaa;
+}
+
+body.dark-mode section form::after {
+    background: #aaa;
+}
+
+/* LINKS */
+body.dark-mode section a {
+    color: #bbb;
+}
+
+body.dark-mode section a:hover {
+    background: #2a2a2a;
+    color: #fff;
+}
+
+/* PROFILE IMAGE */
+body.dark-mode .profile-img {
+    border: 1px solid #444;
+}
+
+/* MAIN WRAPPER */
+body.dark-mode .feed-wrapper {
+    background: transparent;
+}
+
+/* CREATE POST */
+body.dark-mode .create-post {
+    background: #1e1e1e;
+    color: #fff;
+    box-shadow: none;
+}
+
+/* TEXTAREA */
+body.dark-mode textarea {
+    background: #2a2a2a;
+    color: #fff;
+    border: 1px solid #444;
+}
+
+/* FILE INPUT */
+body.dark-mode input[type="file"] {
+    color: #ccc;
+}
+
+/* POSTS */
+body.dark-mode .post-card {
+    background: #1e1e1e;
+    color: #fff;
+    box-shadow: none;
+}
+
+/* POST IMAGE WRAPPER (optional cleaner look) */
+body.dark-mode .post-card img {
+    border-radius: 8px;
+}
+
+/* BUTTON */
+body.dark-mode .create-post button {
+    background: #0a66c2;
+}
+
+/* SIDEBARS (L1 + L3) */
+body.dark-mode .flex-item > div:first-child,
+body.dark-mode .flex-item > div:last-child {
+    background: #1e1e1e;
+    color: #fff;
+}
+
+/* REMOVE LIGHT GREY GAP */
+body.dark-mode .flex-item {
+    background: transparent;
 }

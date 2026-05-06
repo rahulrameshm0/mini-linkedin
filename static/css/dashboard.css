@@ -28,6 +28,22 @@ section {
     /* box-shadow: 0 1px 4px rgba(0, 0, 0, 0.07); */
 }
 
+.profile-img {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #fff;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+/* Hover effect */
+.profile-img:hover {
+    transform: scale(1.05);
+    border-color: #0a66c2;
+}
+
 /* ── Brand Title ── */
 section h3 {
     font-size: 1.25rem;
@@ -152,4 +168,89 @@ section > div:last-child a img {
     border: 1.5px solid #ccc;
     background: #dce6f1;
     display: block;
+}
+
+
+
+/* ── DARK MODE ── */
+
+/* Body */
+body.dark-mode {
+    background-color: #121212;
+    color: #ffffff;
+}
+
+/* Navbar */
+body.dark-mode section {
+    background: #1e1e1e;
+    border-bottom: 1px solid #333;
+}
+
+/* Brand */
+body.dark-mode section h3 {
+    color: #4dabf7;
+}
+
+/* Search */
+body.dark-mode section input[type="search"] {
+    background: #2a2a2a;
+    color: #ffffff;
+    border-color: #444;
+}
+
+body.dark-mode section input[type="search"]::placeholder {
+    color: #aaa;
+}
+
+/* Search icon */
+body.dark-mode section form::before {
+    border-color: #aaa;
+}
+
+body.dark-mode section form::after {
+    background: #aaa;
+}
+
+/* Nav links */
+body.dark-mode section > div:last-child a {
+    color: #bbb;
+}
+
+body.dark-mode section > div:last-child a:hover {
+    background: #2a2a2a;
+    color: #fff;
+}
+
+/* Active link underline */
+body.dark-mode section > div:last-child a:first-child {
+    color: #fff;
+}
+
+body.dark-mode section > div:last-child a:first-child::after {
+    background: #fff;
+}
+
+/* Profile image */
+body.dark-mode .profile-img {
+    border: 1.5px solid #444;
+}
+
+/* Cards (posts + create post) */
+body.dark-mode .post-card,
+body.dark-mode .create-post {
+    background: #1e1e1e;
+    color: #ffffff;
+}
+
+/* Inputs */
+body.dark-mode textarea,
+body.dark-mode input[type="file"] {
+    background: #2a2a2a;
+    color: #fff;
+    border: 1px solid #444;
+}
+
+/* Buttons */
+body.dark-mode .create-post button {
+    background: #0a66c2;
 }
