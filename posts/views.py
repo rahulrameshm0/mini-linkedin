@@ -27,19 +27,20 @@ def dashboard(request):
     return render(request, "dashboard.html", {'posts':posts})
 
 def edit(request, id):
-    error_handling = get_object_or_404(Post, id=id)
+    post = get_object_or_404(Post, id=id)
     if request.method == "POST":
-        image = request.POST.get("image")
+        image = request.FILES.get("image")
         content = request.POST.get("content")
         user = request.POST.get("user")
 
-        error_handling.image = image
-        error_handling.content = content
-        error_handling.user = user
+        post.content = content
 
-        error_handling.save()
+        if image:
+            post.image = image
+        post.save()
         return redirect('dashboard')
-    return render(request, "edit-posts.html", {"edit_posts":error_handling})
+    
+    return render(request, "edit-posts.html", {"edit_posts":post})
 
 
 def remove_post(request, id):

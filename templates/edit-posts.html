@@ -1,1 +1,56 @@
 {% extends "navbar-layout.html" %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/edit.css' %}">
+{% endblock %}
+
+{% block content %}
+{% if edit_posts %}
+<div class="page">
+  <div class="edit-card">
+
+    <div class="card-header">
+      <div class="avatar">{{ request.user.username|slice:":2"|upper }}</div>
+      <div class="card-header-text">
+        <p>{{ request.user.username }}</p>
+        <p>Editing post</p>
+      </div>
+    </div>
+
+    <form method="POST" enctype="multipart/form-data">
+      {% csrf_token %}
+      <div class="card-body">
+
+        <textarea name="content">{{ edit_posts.content }}</textarea>
+
+        {% if edit_posts.image %}
+        <div class="image-preview">
+          <img src="{{ edit_posts.image.url }}" alt="current image">
+          <div class="image-label">
+            Current photo
+            <span class="replace-badge">upload below to replace</span>
+          </div>
+        </div>
+        {% endif %}
+
+        <label for="fileInput" class="upload-zone">
+          <p>Click to upload a new photo</p>
+          <span>PNG, JPG up to 10MB</span>
+        </label>
+        <input type="file" id="fileInput" name="image" accept="image/*">
+
+      </div>
+
+      <div class="card-divider"></div>
+
+      <div class="card-footer">
+        <a href="{% url 'dashboard' %}" class="btn-cancel">Cancel</a>
+        <button type="submit" class="btn-save">Save changes</button>
+      </div>
+    </form>
+
+  </div>
+</div>
+{% endif %}
+{% endblock %}
