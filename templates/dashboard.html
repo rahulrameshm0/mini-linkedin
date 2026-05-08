@@ -31,7 +31,7 @@
                 <div class="post-card">
                     <p class="username">{{ post.user.username }}</p>
                     <p class="content">{{ post.content }}</p>
-                    
+                    <a href="{% url 'edit' post.id %}"><ion-icon class="icons" name="create-outline"></ion-icon></a>
                     {% if post.image %}
                     <img src="{{ post.image.url }}" alt="post">
                     {% endif %}

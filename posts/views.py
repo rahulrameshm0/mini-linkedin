@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from posts.models import Post
@@ -25,3 +25,22 @@ def dashboard(request):
     posts = Post.objects.all().order_by('-created_at')
 
     return render(request, "dashboard.html", {'posts':posts})
+
+def edit(request, id):
+    error_handling = get_object_or_404(Post, id=id)
+    if request.method == "POST":
+        image = request.POST.get("image")
+        content = request.POST.get("content")
+        user = request.POST.get("user")
+
+        error_handling.image = image
+        error_handling.content = content
+        error_handling.user = user
+
+        error_handling.save()
+        return redirect('dashboard')
+    return render(request, "edit-posts.html", {"edit_posts":error_handling})
+
+
+def remove_post(request, id):
+    pass

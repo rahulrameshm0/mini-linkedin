@@ -8,7 +8,7 @@ body {
 /* Utility */
 .flex-item {
     display: flex;
-    justify-content: space-between; 
+    justify-content: space-between;
 }
 
 /* NAVBAR */
@@ -386,4 +386,9 @@ body.dark-mode .profile-img {
 .file-name {
     font-size: 12px;
     color: #666;
+}
+
+.icons{
+    text-align: end;
+    font-size: 2rem;
 }
