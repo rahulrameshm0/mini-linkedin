@@ -1,8 +1,6 @@
 {% extends "navbar-layout.html" %}
 {% load static %}
-
 {% block content %}
-
 <main class="feed-wrapper">
     <div class="flex-item">
 
@@ -29,9 +27,20 @@
             <div class="posts-container">
                 {% for post in posts %}
                 <div class="post-card">
-                    <p class="username">{{ post.user.username }}</p>
-                    <p class="content">{{ post.content }}</p>
-                    <a href="{% url 'edit' post.id %}"><ion-icon class="icons" name="create-outline"></ion-icon></a>
+                    <div class="icon-end">
+                        <div class="div-1">
+                            <p class="username">{{ post.user.username }}</p>
+                            <p class="content">{{ post.content }}</p>
+                        </div>
+
+                        <div class="div-2">
+                            {% if post.user == request.user %}
+                            <a href="{% url 'edit' post.id %}"><ion-icon class="icons" name="create-outline"></ion-icon></a>
+                            {% endif %}
+                        </div>
+                                                
+                    </div>
+                        
                     {% if post.image %}
                     <img src="{{ post.image.url }}" alt="post">
                     {% endif %}
@@ -46,6 +55,4 @@
 
     </div>
 </main>
-
-
 {% endblock %}

@@ -392,3 +392,12 @@ body.dark-mode .profile-img {
     text-align: end;
     font-size: 2rem;
 }
+
+
+.icon-end{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
