@@ -6,7 +6,6 @@ from posts.models import Post
 
 # Create your views here.
 
-@login_required(login_url="signin")
 def dashboard(request):
     if request.method == "POST":
         print("POST HIT")
@@ -45,4 +44,6 @@ def edit(request, id):
 
 
 def remove_post(request, id):
-    pass
+    delete_post = Post.objects.filter(id=id)
+    delete_post.delete()
+    return redirect('dashboard')

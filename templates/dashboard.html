@@ -13,10 +13,10 @@
             <div class="create-post">
                 <form method="POST" enctype="multipart/form-data" action="{% url 'dashboard' %}">
                     {% csrf_token %}
-                    <textarea name="content" placeholder="What’s on your mind?" required></textarea>
+                    <textarea name="content" placeholder="What’s on your mind?"></textarea>
                     <div class="file-upload">
                         <label for="fileInput" class="upload-btn">📷 Add Photo</label>
-                        <input type="file" id="fileInput" name="image">
+                        <input type="file" id="fileInput" name="image" onchange="document.querySelector('.file-name').textContent = this.files[0] ? this.files[0].name : 'No file chosen'">
                         <span class="file-name">No file chosen</span>
                     </div>
                     <button type="submit">Post</button>
@@ -36,9 +36,10 @@
                         <div class="div-2">
                             {% if post.user == request.user %}
                             <a href="{% url 'edit' post.id %}"><ion-icon class="icons" name="create-outline"></ion-icon></a>
+                            <a href="{% url 'delete' post.id %}"><ion-icon class="icon-2" name="trash-outline"></ion-icon></a>
                             {% endif %}
                         </div>
-                                                
+
                     </div>
                         
                     {% if post.image %}

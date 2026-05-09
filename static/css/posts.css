@@ -390,7 +390,14 @@ body.dark-mode .profile-img {
 
 .icons{
     text-align: end;
-    font-size: 2rem;
+    font-size: 1.2rem;
+    color: rgb(60, 101, 214);
+}
+
+.icon-2{
+    text-align: end;
+    font-size: 1.2rem;
+    color: rgb(237, 31, 31);
 }
 
 
@@ -401,3 +408,7 @@ body.dark-mode .profile-img {
 }
 
 
+.login-icon{
+    font-size: 1.8rem;
+    color: rgb(60, 101, 214);
+}

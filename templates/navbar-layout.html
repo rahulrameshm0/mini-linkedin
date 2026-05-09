@@ -29,7 +29,11 @@
         <a href="#">Messages</a>
         <a href="#" class="profile-link"><img src="{% static 'images/rahul.jpg' %}" alt="profile" class="profile-img"></a>
         <button id="darkToggle" class="toggle"><span class="icon">🌙</span></button>
+        {% if user.is_authenticated %}
         <a href="{% url 'logout' %}"><ion-icon class="icon" name="log-out-outline"></ion-icon></a>
+        {% else %}
+        <a href="{% url 'signin' %}"><ion-icon class="login-icon" name="log-in-outline"></ion-icon></ion-icon></a>
+        {% endif %}
     </div>
 </section>
 
