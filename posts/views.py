@@ -5,7 +5,6 @@ from posts.models import Post
 
 
 # Create your views here.
-
 def dashboard(request):
     if request.method == "POST":
         print("POST HIT")
@@ -31,7 +30,7 @@ def edit(request, id):
     if request.method == "POST":
         image = request.FILES.get("image")
         content = request.POST.get("content")
-        user = request.POST.get("user")
+        # user = request.POST.get("user")
 
         post.content = content
 
