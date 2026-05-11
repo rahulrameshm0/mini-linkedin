@@ -41,7 +41,6 @@ def edit(request, id):
     
     return render(request, "edit-posts.html", {"edit_posts":post})
 
-
 def remove_post(request, id):
     delete_post = Post.objects.filter(id=id)
     delete_post.delete()
