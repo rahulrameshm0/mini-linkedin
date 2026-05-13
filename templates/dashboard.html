@@ -35,8 +35,19 @@
 
                         <div class="div-2">
                             {% if post.user == request.user %}
-                            <a href="{% url 'edit' post.id %}"><ion-icon class="icons" name="create-outline"></ion-icon></a>
-                            <a href="{% url 'delete' post.id %}"><ion-icon class="icon-2" name="trash-outline"></ion-icon></a>
+                            <button class="openModal"
+                                style="background: transparent; color: white; border: none; font-size: 1.3rem;">
+                                <ion-icon name="ellipsis-horizontal-outline"></ion-icon>
+                            </button>
+                            
+                            <div class="modal">
+                                <a href="{% url 'edit' post.id %}">
+                                    <ion-icon class="icons" name="create-outline"></ion-icon>
+                                </a> 
+                                <a href="{% url 'delete' post.id %}">
+                                    <ion-icon class="icon-2" name="trash-outline"></ion-icon>
+                                </a>
+                            </div>
                             {% endif %}
                         </div>
 

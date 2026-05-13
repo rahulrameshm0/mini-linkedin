@@ -255,5 +255,22 @@ body.dark-mode .create-post button {
     background: #0a66c2;
 }
 
-/* EDIT */
 
+.modal {
+    display: none !important;
+    position: absolute;
+    top: 30px;
+    right: 0;
+    background: #1e1e1e;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.modal.show {
+    display: flex !important;
+    gap: 10px;
+}
+
+.div-2 {
+    position: relative;
+}
