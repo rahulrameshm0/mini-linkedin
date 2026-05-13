@@ -1,10 +1,10 @@
-const buttons = document.querySelectorAll(".openModal");
+// const buttons = document.querySelectorAll(".openModal");
 
-buttons.forEach(button => {
-    button.addEventListener("click", () => {
+// buttons.forEach(button => {
+//     button.addEventListener("click", () => {
 
-        const modal = button.nextElementSibling;
+//         const modal = button.nextElementSibling;
 
-        modal.classList.toggle("show");
-    });
-});
+//         modal.classList.toggle("show");
+//     });
+// });

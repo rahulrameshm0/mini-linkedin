@@ -40,10 +40,10 @@
                                 <ion-icon name="ellipsis-horizontal-outline"></ion-icon>
                             </button>
                             
-                            <div class="modal">
+                            <div class="post-modal" style="display: none;">
                                 <a href="{% url 'edit' post.id %}">
                                     <ion-icon class="icons" name="create-outline"></ion-icon>
-                                </a> 
+                                </a>
                                 <a href="{% url 'delete' post.id %}">
                                     <ion-icon class="icon-2" name="trash-outline"></ion-icon>
                                 </a>
@@ -67,4 +67,25 @@
 
     </div>
 </main>
+
+<script>
+const buttons = document.querySelectorAll(".openModal");
+
+buttons.forEach(button => {
+    button.addEventListener("click", () => {
+
+        const modal = button.nextElementSibling;
+
+        if(modal.style.display === "none"){
+            modal.style.display = "flex";
+        } else {
+            modal.style.display = "none";
+        }
+
+    });
+});
+
+</script>
 {% endblock %}
+
+<!-- <script src="{% static 'js/edit.js' %}"></script> -->

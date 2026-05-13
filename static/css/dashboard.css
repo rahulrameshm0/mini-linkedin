@@ -256,21 +256,19 @@ body.dark-mode .create-post button {
 }
 
 
-.modal {
-    display: none !important;
-    position: absolute;
-    top: 30px;
-    right: 0;
-    background: #1e1e1e;
-    padding: 10px;
-    border-radius: 10px;
+
+
+.post-modal{
+    display:none;
+    position:absolute;
 }
 
-.modal.show {
-    display: flex !important;
-    gap: 10px;
+.post-modal{
+    display:flex;
+    gap:10px;
 }
 
-.div-2 {
-    position: relative;
+.openModal:hover{
+    background-color: #4d4545;
+
 }
