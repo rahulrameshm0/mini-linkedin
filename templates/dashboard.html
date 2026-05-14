@@ -33,19 +33,22 @@
                             <p class="content">{{ post.content }}</p>
                         </div>
 
-                        <div class="div-2">
+                        <div class="div-2" style="position: relative;">
                             {% if post.user == request.user %}
                             <button class="openModal"
                                 style="background: transparent; color: white; border: none; font-size: 1.3rem;">
                                 <ion-icon name="ellipsis-horizontal-outline"></ion-icon>
                             </button>
                             
-                            <div class="post-modal" style="display: none;">
-                                <a href="{% url 'edit' post.id %}">
-                                    <ion-icon class="icons" name="create-outline"></ion-icon>
+                            <div class="post-modal" style="position: absolute; top: 35px; right: 0; background: #1e1e1e; border-radius: 12px; padding: 10px 0; width: 180px; display: none; flex-direction: column; box-shadow: 0 4px 10px rgba(0,0,0,0.3);"> 
+                                <a href="{% url 'edit' post.id %}" style="color: white; text-decoration: none;display: flex; align-items: center; gap: 10px; padding: 12px 16px;">
+                                    Edit
+                                    <!-- <ion-icon class="icons" name="create-outline"></ion-icon> -->
                                 </a>
-                                <a href="{% url 'delete' post.id %}">
-                                    <ion-icon class="icon-2" name="trash-outline"></ion-icon>
+
+                                <a href="{% url 'delete' post.id %}" style="color: white; text-decoration: none; display: flex; align-items: center; gap: 10px; padding: 12px 16px;">
+                                    Delete
+                                    <!-- <ion-icon class="icon-2" name="trash-outline"></ion-icon> -->
                                 </a>
                             </div>
                             {% endif %}
@@ -72,17 +75,19 @@
 const buttons = document.querySelectorAll(".openModal");
 
 buttons.forEach(button => {
+
     button.addEventListener("click", () => {
 
         const modal = button.nextElementSibling;
 
-        if(modal.style.display === "none"){
-            modal.style.display = "flex";
-        } else {
+        if(modal.style.display === "flex"){
             modal.style.display = "none";
+        }else{
+            modal.style.display = "flex";
         }
 
     });
+
 });
 
 </script>
