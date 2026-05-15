@@ -254,21 +254,3 @@ body.dark-mode input[type="file"] {
 body.dark-mode .create-post button {
     background: #0a66c2;
 }
-
-
-
-
-.post-modal{
-    display:none;
-    position:absolute;
-}
-
-.post-modal{
-    display:flex;
-    gap:10px;
-}
-
-.openModal:hover{
-    background-color: #4d4545;
-
-}
