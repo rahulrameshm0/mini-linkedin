@@ -3,6 +3,7 @@ from . import views
 
 urlpatterns = [
     path('home_dashboard', views.dashboard, name='home_dashboard'),   
+    path('upload/', views.upload_files, name='upload_files'),   
     path('edit/<int:id>/', views.edit, name='edit'),    
     path('delete/<int:id>/', views.remove_post, name='delete'),    
 ]

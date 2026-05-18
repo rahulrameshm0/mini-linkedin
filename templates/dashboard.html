@@ -11,7 +11,7 @@
         <!-- CREATE POST -->
         <div>        
             <div class="create-post">
-                <form method="POST" enctype="multipart/form-data" action="{% url 'dashboard' %}">
+                <form method="POST" enctype="multipart/form-data" action="{% url 'upload_files' %}">
                     {% csrf_token %}
                     <textarea name="content" placeholder="What’s on your mind?"></textarea>
                     <div class="file-upload">

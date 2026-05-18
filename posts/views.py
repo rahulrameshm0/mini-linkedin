@@ -6,11 +6,13 @@ from posts.models import Post
 
 # Create your views here.
 def dashboard(request):
-    if request.method == "POST":
-        print("POST HIT")
-        print("CONTENT:", request.POST.get("content"))
-        print("FILES:", request.FILES)
+    posts = Post.objects.all().order_by('-created_at')
+    return render(request, "dashboard.html", {'posts':posts})
 
+@login_required(login_url="signin")
+def upload_files(request):
+    
+    if request.method == "POST":
         image = request.FILES.get("image")
         content = request.POST.get("content")
 
@@ -22,8 +24,8 @@ def dashboard(request):
 
         return redirect("dashboard")
     posts = Post.objects.all().order_by('-created_at')
-
     return render(request, "dashboard.html", {'posts':posts})
+
 
 def edit(request, id):
     post = get_object_or_404(Post, id=id)
