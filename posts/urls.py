@@ -7,3 +7,4 @@ urlpatterns = [
     path('edit/<int:id>/', views.edit, name='edit'),    
     path('delete/<int:id>/', views.remove_post, name='delete'),    
 ]
+urlpatterns += [path('<int:id>/like/', views.like, name='like'), path('<int:id>/comment/', views.comment, name='comment')]

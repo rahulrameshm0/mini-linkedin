@@ -1,0 +1,1 @@
+{% extends 'layout.html' %}{% block content %}<main class="narrow card"><h1>{{ heading }}</h1><form method="post" enctype="multipart/form-data">{% csrf_token %}{{ form.as_p }}<div class="actions"><button class="primary">Save changes</button><a href="{% url 'dashboard' %}">Cancel</a></div></form></main>{% endblock %}
