@@ -26,7 +26,15 @@ SECRET_KEY = 'django-insecure-ks%cfuojho)-ab*0@a^z_kg=8ukyegu=goufl-jv-ri7_%j2jt
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get('DJANGO_DEBUG', 'true').lower() == 'true'
 
-ALLOWED_HOSTS = os.environ.get('DJANGO_ALLOWED_HOSTS', 'localhost,127.0.0.1,testserver').split(',')
+ALLOWED_HOSTS = [
+    "localhost",
+    "127.0.0.1",
+    "mini-linkedin-0ltk.onrender.com",
+]
+
+CSRF_TRUSTED_ORIGINS = [
+    "https://mini-linkedin-0ltk.onrender.com",
+]
 
 # Application definition
 
