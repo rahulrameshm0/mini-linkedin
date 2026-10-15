@@ -5,7 +5,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.views.decorators.http import require_POST
 from django.contrib import messages
-from .forms import SignupForm, ProfileForm
+from .forms import SignupForm, ProfileForm, DeleteAccountForm
 from .models import Profile
 
 
@@ -58,6 +58,17 @@ def edit_profile(request):
         messages.success(request, 'Profile updated.')
         return redirect('profile', username=request.user.username)
     return render(request, 'form.html', {'form': form, 'heading': 'Edit your profile'})
+
+
+@login_required
+def delete_account(request):
+    form = DeleteAccountForm(request.POST if request.method == 'POST' else None, user=request.user)
+    if request.method == 'POST' and form.is_valid():
+        request.user.delete()
+        logout(request)
+        messages.success(request, 'Your account has been deleted.')
+        return redirect('signin')
+    return render(request, 'delete-account.html', {'form': form})
 
 @login_required
 @require_POST

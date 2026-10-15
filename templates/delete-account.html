@@ -1,0 +1,16 @@
+{% extends 'layout.html' %}
+{% block content %}
+<main class="narrow card">
+    <h1>Delete your account</h1>
+    <p>This permanently removes your profile, posts, comments, likes, and follow connections. This action cannot be undone.</p>
+    <p>Enter your password and confirm below to delete your account.</p>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <div class="actions">
+            <button class="danger" type="submit">Permanently delete my account</button>
+            <a href="{% url 'profile' user.username %}">Cancel</a>
+        </div>
+    </form>
+</main>
+{% endblock %}

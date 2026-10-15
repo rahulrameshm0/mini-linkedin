@@ -6,11 +6,14 @@ A professional networking web application built with Django. Members can share u
 
 - Sign up, sign in, and sign out using Django authentication.
 - Edit your profile headline, location, and biography.
+- Delete your account from your own profile after entering your current password and confirming the permanent deletion.
 - Browse and search members by username; follow or unfollow other members.
 - Publish text posts with optional images; edit and delete your own posts.
 - Browse a newest-first feed with 10 posts per page.
 - Search posts by content or author username, and filter the feed to your own posts and people you follow.
 - Like or unlike posts and add comments.
+- Responsive community dashboard, post composer, profile pages, member directory, and authentication screens.
+- Light and dark themes with a header toggle; the initial theme follows your system preference and your choice is saved in the browser.
 - Manage records through Django's admin interface.
 
 Post text supports up to 5,000 characters, comments up to 1,000 characters, and uploaded images up to 5 MiB. Forms use CSRF protection, and post edits and deletions are restricted to the author.
@@ -55,7 +58,7 @@ python manage.py migrate
 python manage.py runserver
 ```
 
-Open [http://127.0.0.1:8000/](http://127.0.0.1:8000/). You will be redirected to sign in; use the signup page to create an account.
+Open [http://127.0.0.1:8000/](http://127.0.0.1:8000/). You will be redirected to sign in; select **Join now** to create an account. The local database has been cleared for a fresh start; no demo users or default login credentials are provided.
 
 To access the admin interface, create a superuser:
 
@@ -72,6 +75,10 @@ Then visit [http://127.0.0.1:8000/admin/](http://127.0.0.1:8000/admin/).
 3. Create a second account to try following, likes, and comments between members.
 4. Use the network page to find members and visit their profiles.
 5. Switch to the following feed to see your posts and updates from members you follow.
+6. Use **Dark mode** or **Light mode** in the header to change the theme.
+7. To permanently remove your account, open **My profile → Delete account**, enter your current password, and check the confirmation box. This removes your profile, posts, comments, likes, and follow connections, then signs you out.
+
+Account deletion removes database records. Uploaded image files are not automatically removed from storage when an account or post is deleted.
 
 ## Configuration
 
@@ -83,7 +90,7 @@ The application reads these environment variables directly; it does not automati
 | `DJANGO_DEBUG` | `true` | Debug mode; set to `false` in production. |
 | `DJANGO_ALLOWED_HOSTS` | `localhost,127.0.0.1,testserver` | Comma-separated hostnames, without spaces. |
 
-SQLite data is stored in `db.sqlite3`. Uploaded images are stored in `media/posts/`.
+SQLite data is stored in `db.sqlite3`. Uploaded images are stored in `media/posts/`. Source static assets live in `templates/static/`; `collectstatic` copies them into `staticfiles/` for deployment.
 
 ## Run with Docker
 
@@ -105,7 +112,8 @@ mini_linkedin/
 ├── posts/             # Posts, feed, likes, and comments
 ├── mini_linkedin/     # Django settings and root URL configuration
 ├── templates/        # HTML templates
-├── static/           # CSS, JavaScript, and bundled images
+│   └── static/       # CSS, JavaScript, and bundled images
+├── .agents/skills/   # Project-local frontend-design skill and license
 ├── media/            # User uploads (created as needed)
 ├── manage.py         # Django management commands
 ├── requirements.txt  # Python dependencies
@@ -140,6 +148,10 @@ python manage.py test
 5. Configure HTTPS, secure session and CSRF cookies, and backups for the database and uploaded files.
 
 The included Docker command uses the development server. Use a production server such as Gunicorn for deployment.
+
+## Frontend design skill
+
+The Anthropic `frontend-design` skill is included in [`.agents/skills/frontend-design/SKILL.md`](.agents/skills/frontend-design/SKILL.md), with its license alongside it. It provides design guidance for future frontend changes and is not a runtime dependency.
 
 ## Scope and implementation notes
 
